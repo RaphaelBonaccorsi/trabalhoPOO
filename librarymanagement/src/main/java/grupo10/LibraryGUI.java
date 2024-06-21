@@ -5,11 +5,19 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * The graphical user interface for the library system.
+ * This class handles the user interactions with the library system.
+ */
 public class LibraryGUI extends JFrame {
     private LibrarySystem librarySystem;
     private UserAuthentication userAuth;
     private static boolean running = true; // Variável para verificar se a janela está aberta
 
+    /**
+     * Constructs a new LibraryGUI with the specified library system.
+     */
     public LibraryGUI() {
         librarySystem = new LibrarySystem();
         userAuth = new UserAuthentication();
@@ -33,7 +41,9 @@ public class LibraryGUI extends JFrame {
     public static boolean isRunning() {
         return running;
     }
-
+    /*
+     * creat loginInferface
+     */
     private void showLoginInterface() {
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -116,7 +126,9 @@ public class LibraryGUI extends JFrame {
         revalidate();
         repaint();
     }
-
+    /*
+     * set a library interface
+     */
     private void showLibraryInterface() {
         JPanel panel = new JPanel(new BorderLayout());
 
@@ -277,7 +289,9 @@ public class LibraryGUI extends JFrame {
         revalidate();
         repaint();
     }
-
+    /*
+     * GUI of funcition addbook
+     */
     private void addBook() {
         String title = JOptionPane.showInputDialog(this, "Enter Book Title:");
         String author = JOptionPane.showInputDialog(this, "Enter Book Author:");
@@ -291,7 +305,9 @@ public class LibraryGUI extends JFrame {
             showMessage("Success", "Book added successfully.");
         }
     }
-
+     /*
+     * GUI of funcition editbook
+     */
     private void editBook() {
         String isbn = JOptionPane.showInputDialog(this, "Enter Book ISBN to edit:");
         List<Book> books = librarySystem.searchBooksByIsbn(isbn);
@@ -312,7 +328,9 @@ public class LibraryGUI extends JFrame {
             showMessage("Error", "Book not found.");
         }
     }
-
+     /*
+     * GUI of funcition removebook
+     */
     private void removeBook() {
         String isbn = JOptionPane.showInputDialog(this, "Enter Book ISBN to remove:");
         if (isbn.isEmpty()) {
@@ -328,7 +346,9 @@ public class LibraryGUI extends JFrame {
             }
         }
     }
-
+     /*
+     * GUI of funcition searchbook
+     */
     private void searchBook() {
         String[] options = {"Title", "Author", "ISBN", "Category"};
         String criteria = (String) JOptionPane.showInputDialog(this, "Select search criteria:", "Search Book", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
@@ -373,7 +393,9 @@ public class LibraryGUI extends JFrame {
             }
         }
     }
-
+     /*
+     * GUI of funcition checkoubook
+     */
     private void checkoutBook() {
         String isbn = JOptionPane.showInputDialog(this, "Enter Book ISBN to checkout:");
         if (isbn.isEmpty()) {
@@ -400,7 +422,9 @@ public class LibraryGUI extends JFrame {
             }
         }
     }
-
+     /*
+     * GUI of funcition checkinbook
+     */
     private void checkinBook() {
         String isbn = JOptionPane.showInputDialog(this, "Enter Book ISBN to checkin:");
         if (isbn.isEmpty()) {
@@ -416,7 +440,9 @@ public class LibraryGUI extends JFrame {
             }
         }
     }
-
+     /*
+     * GUI of funcition addpatron
+     */
     private void addPatron() {
         String name = JOptionPane.showInputDialog(this, "Enter Patron Name:");
         String contactInfo = JOptionPane.showInputDialog(this, "Enter Patron Contact Info:");
@@ -428,7 +454,9 @@ public class LibraryGUI extends JFrame {
             showMessage("Success", "Patron added successfully.");
         }
     }
-
+     /*
+     * GUI of funcition editpatron
+     */
     private void editPatron() {
         String name = JOptionPane.showInputDialog(this, "Enter Patron Name to edit:");
         if (name.isEmpty()) {
@@ -450,7 +478,9 @@ public class LibraryGUI extends JFrame {
             }
         }
     }
-
+     /*
+     * GUI of funcition removepatron
+     */
     private void removePatron() {
         String name = JOptionPane.showInputDialog(this, "Enter Patron Name to remove:");
         if (name.isEmpty()) {
@@ -465,7 +495,9 @@ public class LibraryGUI extends JFrame {
             }
         }
     }
-
+     /*
+     * GUI of funcition searchpatron
+     */
     private void searchPatron() {
         String query = JOptionPane.showInputDialog(this, "Enter search query (Name, Contact Info):");
         if (query.isEmpty()) {
@@ -481,7 +513,9 @@ public class LibraryGUI extends JFrame {
             showMessage("Search Results", message.toString());
         }
     }
-
+     /*
+     * GUI of funcition listbooks
+     */
     private void listBooks() {
         List<Book> books = librarySystem.getBooks();
         StringBuilder message = new StringBuilder();
