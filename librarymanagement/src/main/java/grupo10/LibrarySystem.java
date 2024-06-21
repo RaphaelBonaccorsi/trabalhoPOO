@@ -2,14 +2,19 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+/**
+ * Represents the library system.
+ * This class manages books, patrons, and loans.
+ */
 public class LibrarySystem {
     private List<Book> books;
     private List<Patron> patrons;
     private List<Loan> loans;
     private static final String BOOK_FILE = "book.txt";
     private static final String PATRON_FILE = "patron.txt";
-
+     /**
+     * Constructs a new LibrarySystem.
+     */
     public LibrarySystem() {
         books = new ArrayList<>();
         patrons = new ArrayList<>();
@@ -18,17 +23,23 @@ public class LibrarySystem {
         loadPatronsFromFile();
     }
 
-    // Gerenciamento de livros
+   /**
+     * Adds a book to the library system.
+     */
     public void addBook(Book book) {
         books.add(book);
         saveBooksToFile();
     }
-
+    /**
+     * remove a book from the library system.
+     */
     public void removeBook(Book book) {
         books.remove(book);
         saveBooksToFile();
     }
-
+    /**
+     * edite a book of the library system.
+     */
     public void editBook(Book oldBook, Book newBook) {
         int index = books.indexOf(oldBook);
         if (index != -1) {
@@ -36,7 +47,10 @@ public class LibrarySystem {
             saveBooksToFile();
         }
     }
-
+    /**
+     * search a book in library system.
+     * the search can be by: title, author, ISBN, category
+     */
     public List<Book> searchBooksByTitle(String title) {
         List<Book> results = new ArrayList<>();
         for (Book book : books) {
@@ -77,17 +91,23 @@ public class LibrarySystem {
         return results;
     }
 
-    // Gerenciamento de usuários
+    /**
+     * Add patron to the library system.
+     */
     public void addPatron(Patron patron) {
         patrons.add(patron);
         savePatronsToFile();
     }
-
+    /**
+     * remove patron from the library system.
+     */
     public void removePatron(Patron patron) {
         patrons.remove(patron);
         savePatronsToFile();
     }
-
+    /**
+     * edite patron of the library system.
+     */
     public void editPatron(Patron oldPatron, Patron newPatron) {
         int index = patrons.indexOf(oldPatron);
         if (index != -1) {
@@ -95,7 +115,9 @@ public class LibrarySystem {
             savePatronsToFile();
         }
     }
-
+    /**
+     * search a patron in the library system.
+     */
     public List<Patron> searchPatrons(String query) {
         List<Patron> results = new ArrayList<>();
         for (Patron patron : patrons) {
@@ -116,7 +138,9 @@ public class LibrarySystem {
         return null;
     }
 
-    // Gerenciamento de empréstimos
+    /*
+     * manages loans in the library system
+     */
     public void checkoutBook(Book book, Patron patron, Date dueDate) {
         loans.add(new Loan(book, patron, new Date(), dueDate));
     }
@@ -163,7 +187,9 @@ public class LibrarySystem {
             System.out.println("Error loading books from file: " + e.getMessage());
         }
     }
-
+    /*
+     * save books on file book.txt
+     */
     private void saveBooksToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(BOOK_FILE))) {
             for (Book book : books) {
@@ -189,7 +215,9 @@ public class LibrarySystem {
             System.out.println("Error loading patrons from file: " + e.getMessage());
         }
     }
-
+    /*
+     * save patrons on file patron.txt
+     */
     private void savePatronsToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(PATRON_FILE))) {
             for (Patron patron : patrons) {
