@@ -1,3 +1,4 @@
+package grupo10;
 /**
  * Represents a book in the library system.
  * A book has a title, author, ISBN, and availability status.
