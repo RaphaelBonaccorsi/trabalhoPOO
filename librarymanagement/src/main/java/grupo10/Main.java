@@ -1,3 +1,4 @@
+package grupo10;
 import javax.swing.SwingUtilities;
 
 public class Main {
