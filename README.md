@@ -42,3 +42,8 @@ Manages user credentials and authentication processes.
 1. Clone the repository or download the source code.
 2. Compile the Java source files:
 3. Run the application java Main
+
+### ASSOCIATES
+Diogo Gianezi de Melo      n: 12563522
+Luiz Henrique Benedito Belorio   n: 12563814
+Raphael Monteiro Consoni Bonaccorsi    n:12563366
