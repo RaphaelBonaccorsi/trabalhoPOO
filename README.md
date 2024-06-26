@@ -44,6 +44,6 @@ Manages user credentials and authentication processes.
 3. Run the application java Main
 
 ### ASSOCIATES
-Diogo Gianezi de Melo      n: 12563522
-Luiz Henrique Benedito Belorio   n: 12563814
-Raphael Monteiro Consoni Bonaccorsi    n:12563366
+- Diogo Gianezi de Melo      n: 12563522
+- Luiz Henrique Benedito Belorio   n: 12563814
+- Raphael Monteiro Consoni Bonaccorsi    n:12563366
